@@ -16,6 +16,7 @@ public class GameController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -34,6 +35,7 @@ public class GameController : MonoBehaviour
         {
             startText.SetActive(true);
         }
+        UnityEngine.Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
