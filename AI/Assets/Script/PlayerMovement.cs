@@ -147,12 +147,12 @@ public class PlayerMovement : MonoBehaviour
         if (Physics.Raycast(feet.transform.position, Vector3.down, out hit, 0.1f))
         {
             isGrounded = true;
-            Debug.Log("Grounded");
+            //Debug.Log("Grounded");
         }
         else
         {
             isGrounded = false;
-            Debug.Log("Not Grounded");
+            //Debug.Log("Not Grounded");
         }
     }
 

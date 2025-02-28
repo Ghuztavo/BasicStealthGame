@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
@@ -6,6 +7,11 @@ public class GameController : MonoBehaviour
 {
     public static GameController instance;
     [SerializeField] private GameObject winPanel;
+
+    [SerializeField] private GameObject startText;
+    private float startTextTime = 7.0f;
+    private float startTextTimer = 0.0f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,11 +29,29 @@ public class GameController : MonoBehaviour
         {
             winPanel.SetActive(false);
         }
+
+        if (startText != null)
+        {
+            startText.SetActive(true);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (startText)
+        {       
+            if (startTextTimer > startTextTime)
+            {
+                startText.SetActive(false);
+                Debug.Log("text disapeared");
+            }
+            else
+            {
+                startTextTimer += Time.deltaTime;
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
             RestartGame();
